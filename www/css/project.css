@@ -1,0 +1,28 @@
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    max-width: 1250px;
+    margin: auto;
+    background-color: rgb(35, 35, 35);
+}
+
+#main-container {}
+
+
+nav#nav-main {
+    list-style-type: none;
+    overflow: hidden;
+}
+
+nav#nav-main a {
+    text-decoration: none;
+    text-align: center;
+    color: white;
+    display: block;
+    float: right;
+    padding: 14px 16px;
+    text-transform: uppercase;
+}
+
+nav#nav-main a:hover {
+    background-color: rgb(75, 159, 232);
+}
