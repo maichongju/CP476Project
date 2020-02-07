@@ -1,3 +1,7 @@
+<?php
+    session_start();
+
+?>
 <!doctype html>
 <html lang="en">
 <title>CP476 Prject</title>
@@ -12,8 +16,12 @@
             <div id="nav-title">
             </div>
             <nav id="nav-main">
-                <a href="login.html">Log in</a>
-                <a href="#">Sign Up</a>
+                <?php if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) : ?>
+                <a href="?logout=true">Log out</a>
+                <?php else: ?>
+                <a href="login.php">Log in</a>
+                <a href="signup.php">Sign Up</a>
+                <?php endif; ?>
             </nav>
         </div>
 

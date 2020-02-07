@@ -1,9 +1,11 @@
-form#form-login {
+form#form-login,
+form#form-signup {
     margin: 0 auto 0 auto;
     width: 400px
 }
 
-form#form-login input {
+form#form-login input,
+form#form-signup input {
     width: 100%;
     height: 25px;
 }
@@ -11,8 +13,8 @@ form#form-login input {
 form p {
     color: white;
     font-weight: bold;
-    text-align: left;
-    padding-bottom: 0px;
+    text-align: center;
+    padding-bottom: 0;
     margin-bottom: 5px;
     padding-top: 15px;
 }
@@ -30,7 +32,7 @@ form input {
 
 input.form-submit {
     margin: 30px 0 0 0;
-    padding-right: 0px;
+    padding-right: 0;
     text-align: center;
     background-color: rgb(75, 159, 232);
     border-style: none;
@@ -39,6 +41,7 @@ input.form-submit {
     color: white;
     min-height: 40px;
     min-width: 101%;
+    cursor: pointer;
 }
 
 form div {
@@ -57,4 +60,11 @@ p#sign-up-hint a {
 
 p#sign-up-hint a:visited {
     color: rgb(75, 159, 232);
+}
+
+form p.form-error-msg {
+    color: red;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 0;
 }
