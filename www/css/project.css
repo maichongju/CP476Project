@@ -26,3 +26,7 @@ nav#nav-main a {
 nav#nav-main a:hover {
     background-color: rgb(75, 159, 232);
 }
+
+nav a#nav-logout:hover{
+    background-color: rgb(255,89,89);
+}

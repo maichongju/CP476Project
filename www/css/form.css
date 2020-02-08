@@ -28,13 +28,14 @@ p.form-title {
 form input {
     text-align: center;
     min-height: 32px;
+    border-radius: 2px;
 }
 
 input.form-submit {
     margin: 30px 0 0 0;
     padding-right: 0;
     text-align: center;
-    background-color: rgb(75, 159, 232);
+    background-color: rgb(52, 152, 219);
     border-style: none;
     font-size: 24px;
     font-weight: bold;
@@ -42,6 +43,11 @@ input.form-submit {
     min-height: 40px;
     min-width: 101%;
     cursor: pointer;
+    border-radius: 4px;
+}
+
+input.form-submit:hover {
+    background-color: rgb(40, 116, 166);
 }
 
 form div {

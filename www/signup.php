@@ -9,6 +9,7 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true)
 
 
 require_once "util/userUtil.php";
+require_once "util/errorMsg.php";
 $error_msg =null;
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -17,8 +18,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     try{
         $user = userUtil::Signup($username,password_hash($password,PASSWORD_BCRYPT));
         if ($user === null)
-            // if user is null it means it did not create successed 
-            $error_msg = "Username aleady exist.";
+            // if user is null it means it did not create successed
+            $error_msg = ErrorMsg::DATABASE_USERNAME_EXIST_ERROR;
         else{
             // login success
             session_start();
@@ -27,8 +28,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             
             header("location: index.php");
         }
-    }catch(Exception $e){
-        $error_msg = $e->getMessage();
+    }catch(PDOException $e){
+        if ($e->getCode() === 1045){
+            $error_msg = ErrorMsg::DATABASE_CONNECT_ERROR;
+        }else if ($e->getCode() === "23000"){
+            $error_msg = ErrorMsg::DATABASE_USERNAME_EXIST_ERROR;
+        }else{
+            $error_msg = $e->getMessage();
+        }
+
     }
 }
 
