@@ -5,15 +5,13 @@ body {
     background-color: rgb(35, 35, 35);
 }
 
-#main-container {}
-
 
 nav#nav-main {
     list-style-type: none;
     overflow: hidden;
 }
 
-nav#nav-main a {
+div#nav-main * {
     text-decoration: none;
     text-align: center;
     color: white;
@@ -23,10 +21,26 @@ nav#nav-main a {
     text-transform: uppercase;
 }
 
-nav#nav-main a:hover {
+div#nav-main a:hover {
     background-color: rgb(75, 159, 232);
 }
 
-nav a#nav-logout:hover{
+div a#nav-logout:hover{
     background-color: rgb(255,89,89);
+}
+
+div#nav-main button {
+    background-color: rgba(0,0,0,0);
+    border-style: none;
+    font-size: medium;
+    text-transform: none;
+}
+
+div#nav-main button:hover{
+    cursor: pointer;
+    background-color: rgb(75, 159, 232);
+}
+
+div#nav-main button:focus{
+    border-color: rgba(0,0,0,0);
 }

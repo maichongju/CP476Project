@@ -1,14 +1,22 @@
 <?php
-    session_start();
-    if ($_SERVER["REQUEST_METHOD"] == "GET"){
-        // If user try to logout
-        if (isset($_GET["logout"]) && $_GET["logout"] === "true" && isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-            unset($_GET["logout"]);
-            $_SESSION = null;
-            session_destroy();
-            header("index.php");
-        }
+session_start();
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    // If user try to logout
+    if (isset($_GET["logout"]) && $_GET["logout"] === "true" && isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
+        unset($_GET["logout"]);
+        $_SESSION = null;
+        session_destroy();
+        header("index.php");
     }
+}
+
+require_once "util/user.php";
+
+$username = "ERROR";
+if (isset($_SESSION["loggedin"])) {
+    $user = unserialize($_SESSION["user"]);
+    $username = $user->getUsername();
+}
 
 ?>
 <!doctype html>
@@ -20,24 +28,29 @@
 </head>
 
 <body>
-    <div id="main-container">
-        <div id="nav-block">
-            <div id="nav-title">
-            </div>
-            <nav id="nav-main">
-                <?php if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) : ?>
-                <a href="?logout=true" id="nav-logout">Log out</a>
-                <?php else: ?>
+<div id="main-container">
+    <div id="nav-block">
+        <div id="nav-title">
+        </div>
+        <div id="nav-main">
+            <?php if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) : ?>
+                <button id="nav-main-account-drop-down" onclick="account_dropdown()"><?php echo $username?></button>
+                <div class="drop-down" id="nav-main-dropdown-content">
+                    <a href="#">Account Detail</a>
+                    <a href="?logout=true" id="nav-logout">Log out</a>
+                </div>
+
+            <?php else: ?>
                 <a href="login.php">Log in</a>
                 <a href="signup.php">Sign Up</a>
-                <?php endif; ?>
-            </nav>
+            <?php endif; ?>
         </div>
-
     </div>
+
+</div>
 
 </body>
 
-<script src="/js/project.js"></script>
+<script src="js/index.js"></script>
 
 </html>
