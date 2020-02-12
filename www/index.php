@@ -27,19 +27,23 @@ if (isset($_SESSION["loggedin"])) {
     <link href="css/project.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="index-page">
 <div id="main-container">
     <div id="nav-block">
         <div id="nav-title">
         </div>
         <div id="nav-main">
-            <?php if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) : ?>
-                <button id="nav-main-account-drop-down" onclick="account_dropdown()"><?php echo $username?></button>
-                <div class="drop-down" id="nav-main-dropdown-content">
-                    <a href="#">Account Detail</a>
-                    <a href="?logout=true" id="nav-logout">Log out</a>
-                </div>
 
+            <?php
+            if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) : ?>
+                <div class="menu-dropdown" id="nav-main-account-dropdown">
+                    <button id="nav-main-account-drop-down-button"><?php echo $username ?></button>
+                    <div class="menu-dropdown-content" id="nav-main-dropdown-content">
+                        <a href="account.php">Account Detail</a>
+                        <a href="?logout=true" id="nav-logout">Log out</a>
+                    </div>
+                </div>
+                <a href="#">My Panel</a>
             <?php else: ?>
                 <a href="login.php">Log in</a>
                 <a href="signup.php">Sign Up</a>
@@ -50,6 +54,7 @@ if (isset($_SESSION["loggedin"])) {
 </div>
 
 </body>
+
 
 <script src="js/index.js"></script>
 

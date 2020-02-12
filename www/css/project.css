@@ -2,16 +2,19 @@ body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     max-width: 1250px;
     margin: auto;
-    background-color: rgb(35, 35, 35);
+    height: 100%;
 }
 
+body.index-page{
+    background-color: rgb(35, 35, 35);
+}
 
 nav#nav-main {
     list-style-type: none;
     overflow: hidden;
 }
 
-div#nav-main * {
+div#nav-main a {
     text-decoration: none;
     text-align: center;
     color: white;
@@ -25,22 +28,78 @@ div#nav-main a:hover {
     background-color: rgb(75, 159, 232);
 }
 
-div a#nav-logout:hover{
-    background-color: rgb(255,89,89);
+div a#nav-logout:hover {
+    background-color: rgb(255, 89, 89);
 }
 
 div#nav-main button {
-    background-color: rgba(0,0,0,0);
-    border-style: none;
+    text-align: center;
+    border: none;
     font-size: medium;
     text-transform: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    background-color: rgba(0,0,0,0);
+    color: white;
 }
 
-div#nav-main button:hover{
-    cursor: pointer;
+div#nav-main button:hover {
     background-color: rgb(75, 159, 232);
 }
 
-div#nav-main button:focus{
-    border-color: rgba(0,0,0,0);
+div.menu-dropdown {
+    position: relative;
+    display: inline-block;
+    float: right;
 }
+
+div#nav-main-dropdown-content a {
+    float: none;
+    text-transform: none;
+
+}
+
+div.menu-dropdown-content {
+    box-shadow: 0 8px 16px 0 rgba(255,255,255,0.2);
+    display: none;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+}
+
+
+div#nav-main-dropdown-content:hover button#nav-main-account-drop-down-button{
+    background-color: rgb(37, 107, 168);
+}
+
+div.menu-dropdown:hover div.menu-dropdown-content {
+    display: block;
+}
+
+div.top-nav{
+    background-color: rgb(30,30,30);
+    float: right;
+    width: 100%;
+}
+
+div.top-nav a{
+    float: right;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    width: 60px;
+    padding: 16px;
+    margin: 3px;
+    color: white;
+}
+div.side-bar{
+    height: 100vh;
+    width: 160px;
+
+
+    overflow-x: hidden;
+    margin-top: 40px;
+    padding-top: 30px;
+    background-color: rgb(110,110,110);
+}
+

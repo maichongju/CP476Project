@@ -1,11 +1,11 @@
 <?php
 require_once "dbConnect.php";
-require_once "userError.php";
 
 class User
 {   
     private $username = null;
     private $userid = -1;
+    private $role = null;
     
     public function __construct($username, $userid){
         $this->username = $username;
@@ -18,6 +18,10 @@ class User
 
     public function getUserId(){
         $this->userid;
+    }
+
+    public function getRole(){
+        return $this->role;
     }
 
     
