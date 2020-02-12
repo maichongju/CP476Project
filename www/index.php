@@ -27,7 +27,7 @@ if (isset($_SESSION["loggedin"])) {
     <link href="css/project.css" rel="stylesheet">
 </head>
 
-<body class="index-page">
+<body class="blackground">
 <div id="main-container">
     <div id="nav-block">
         <div id="nav-title">

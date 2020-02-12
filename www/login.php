@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <link href="css/form.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="blackground">
 <div id="div-login-form">
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" id="form-login">
         <div>
