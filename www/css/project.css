@@ -93,6 +93,7 @@ div.top-nav a{
     color: white;
 }
 div.side-bar{
+    float: left;
     width: 160px;
     overflow-x: hidden;
     margin-top: 40px;
@@ -110,4 +111,12 @@ div.side-bar a{
 
 div.side-bar a:hover{
     background-color: rgba(150,150,150,0.8);
+}
+
+div.break-line{
+    height: 1px;
+    background-color: lightgray;
+    overflow: hidden;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
