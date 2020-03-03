@@ -160,6 +160,33 @@ div#copyright{
     text-align: center;
 
 }
+div.items{
+    overflow: hidden;
+    margin-left: 40px;
+    margin-top:40px;
+
+    border: black solid thin;
+}
+img.file-icon{
+    width: 40px;
+    height: 40px;
+    float: left;
+
+
+}
+button.file-but{
+    display: block;
+
+}
+div.file-but-containor{
+    float: right;
+}
+div.file-comment{
+    float: left;
+}
+
+
+
 
 .main-content{
     float: left;
