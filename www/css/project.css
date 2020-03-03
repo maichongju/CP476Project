@@ -160,5 +160,26 @@ div#copyright{
     text-align: center;
 
 }
+div.items{
+    float: left;
+    margin-left: 30px;
+    margin-top:40px;
+    border: black solid thin;
+}
+img.file-icon{
+    width: 40px;
+    height: 40px;
+
+}
+button.file-but{
+    display: block;
+
+}
+div.file-but-containor{
+    float: right;
+}
+
+
+
 
 
