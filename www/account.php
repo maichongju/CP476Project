@@ -6,6 +6,8 @@ session_start();
 
 <head>
     <link rel="stylesheet" href="css/project.css">
+    <script src="jquery-3.4.1-min.js" type="text/javascript"></script>
+    <script src="js/functions.js" type="text/javascript"></script>
     <title>My Account</title>
 
 </head>
@@ -21,8 +23,8 @@ session_start();
 
     <div class="main-content">
         <div class="account-tab">
-            <button class="account-tablinks" onclick="openAccountTab(event,'main')" id="account-tab-default"></button>
-            <button class="account-tablinks" onclick="openAccountTab(event,'change-password')"></button>
+            <button class="account-tablinks" onclick="openAccountTab(event,'main')" id="account-tab-default">Main</button>
+            <button class="account-tablinks" onclick="openAccountTab(event,'change-password')">Change Password</button>
 
 
         </div>
@@ -54,6 +56,6 @@ session_start();
 </div>
 
 </body>
-<script src="js/functions.js"></script>
+
 
 </html>
