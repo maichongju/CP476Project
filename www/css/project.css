@@ -161,14 +161,17 @@ div#copyright{
 
 }
 div.items{
-    float: left;
-    margin-left: 30px;
+    overflow: hidden;
+    margin-left: 40px;
     margin-top:40px;
+
     border: black solid thin;
 }
 img.file-icon{
     width: 40px;
     height: 40px;
+    float: left;
+
 
 }
 button.file-but{
@@ -177,6 +180,9 @@ button.file-but{
 }
 div.file-but-containor{
     float: right;
+}
+div.file-comment{
+    float: left;
 }
 
 

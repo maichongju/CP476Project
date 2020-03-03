@@ -15,9 +15,12 @@ session_start();
         <div class="items">
             <header class="file-title">assignment1</header>
             <img class="file-icon" src="images/icon-word.png">
+            <div class="file-comment">
+                <p>due next week</p>
+            </div>
             <div class="file-but-containor">
                 <button class="file-but">Preview</button>
-                <button class="file-but">Comment</button>
+
                 <button class="file-but">Download</button>
             </div>
 
@@ -25,9 +28,12 @@ session_start();
         <div class="items">
             <header class="file-title">assignment2</header>
             <img class="file-icon" src="images/icon-word.png">
+            <div class="file-comment">
+                <p>haven't posted week</p>
+            </div>
             <div class="file-but-containor">
                 <button class="file-but">Preview</button>
-                <button class="file-but">Comment</button>
+
                 <button class="file-but">Download</button>
             </div>
 
@@ -35,9 +41,12 @@ session_start();
         <div class="items">
             <header class="file-title">lecture1</header>
             <img class="file-icon" src="images/icon-word.png">
+            <div class="file-comment">
+                <p>will be updated</p>
+            </div>
             <div class="file-but-containor">
                 <button class="file-but">Preview</button>
-                <button class="file-but">Comment</button>
+
                 <button class="file-but">Download</button>
             </div>
 
