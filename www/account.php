@@ -7,7 +7,6 @@ session_start();
 <head>
     <link rel="stylesheet" href="css/project.css">
     <script src="jquery-3.4.1-min.js" type="text/javascript"></script>
-    <script src="js/functions.js" type="text/javascript"></script>
     <title>My Account</title>
 
 </head>
@@ -56,6 +55,6 @@ session_start();
 </div>
 
 </body>
-
+<script src="js/functions.js" type="text/javascript"></script>
 
 </html>

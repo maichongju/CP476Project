@@ -161,4 +161,27 @@ div#copyright{
 
 }
 
+.main-content{
+    float: left;
+    padding: 40px 20px 20px 40px;
+}
 
+/*Account Tab*/
+.account-tab{
+    overflow: hidden;
+}
+
+.account-tab button{
+    float: left;
+    border:none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px 5px;
+    transition: 0.3s;
+}
+
+.account-tab-content{
+    display: none;;
+    border: 1px solid #ccc;
+    border-top: none;
+}
