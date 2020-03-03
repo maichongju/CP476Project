@@ -73,6 +73,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
 </body>
-<script src="/js/form.js"></script>
+<script src="js/form.js"></script>
 
 </html>

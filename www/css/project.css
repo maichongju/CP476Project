@@ -120,3 +120,45 @@ div.break-line{
     margin-top: 10px;
     margin-bottom: 10px;
 }
+div#main-intro-div{
+    text-align: center;
+
+}
+p#main-page-intro{
+    float: top;
+
+    background-color: aliceblue;
+}
+div.instruction{
+    float: left;
+    width: 600px;
+       background-color: aliceblue;
+    height: 200px;
+
+}
+p.instruction-detail{
+    margin-left: 10px;
+    font-size: 15px;
+
+
+}
+h1{
+    margin-left: 10px;
+    font-size: 30px;
+}
+div#teacher-instruction{
+    margin-left: 50px;
+}
+h2{
+    margin-left: 10px;
+    font-size: 30px;}
+div#copyright{
+    float: left;
+    width: 1250px;
+    margin-top: 30px;
+    background-color: aliceblue;
+    text-align: center;
+
+}
+
+
