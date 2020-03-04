@@ -206,12 +206,9 @@ div.file-comment{
     transition: 0.3s;
 }
 
-.account-tab-content{
-    display: none;
+
+.account-tab-content {
+    display: none;;
     border: 1px solid #ccc;
     border-top: none;
-}
-div.preview{
-    width: 1000px;
-    height: 1000px;
 }
