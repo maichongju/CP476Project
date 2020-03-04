@@ -183,7 +183,9 @@ div.file-but-containor{
 div.file-comment{
     float: left;
 }
-
+div.preview{
+    height: 1000px;
+}
 
 
 
