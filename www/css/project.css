@@ -162,8 +162,7 @@ div#copyright{
 }
 div.items{
     overflow: hidden;
-    margin-left: 40px;
-    margin-top:40px;
+    width: 1000px;
 
     border: black solid thin;
 }
@@ -208,7 +207,11 @@ div.file-comment{
 }
 
 .account-tab-content{
-    display: none;;
+    display: none;
     border: 1px solid #ccc;
     border-top: none;
+}
+div.preview{
+    width: 1000px;
+    height: 1000px;
 }
