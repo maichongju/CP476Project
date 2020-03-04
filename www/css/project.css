@@ -187,9 +187,10 @@ div.file-comment{
 
 
 
-.main-content{
+.main-content {
     float: left;
-    padding: 40px 20px 20px 40px;
+    margin: 40px 0 20px 40px;
+    width: 1040px;
 }
 
 /*Account Tab*/
@@ -211,4 +212,5 @@ div.file-comment{
     display: none;;
     border: 1px solid #ccc;
     border-top: none;
+    width: 1040px;
 }

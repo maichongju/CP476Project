@@ -15,7 +15,7 @@ session_start();
             Title of the page
         </header>
         <div class="preview">
-            <iframe src="testing_pdf.pdf" type=”application/pdf” width=”100%” height=”100%”>
+            <iframe src="testing_pdf.pdf" type="application/pdf" width="100%" height="100%">
         </div>
         <button>download</button>
     </div>
