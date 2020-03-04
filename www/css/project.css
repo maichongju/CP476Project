@@ -5,7 +5,7 @@ body {
     height: 100%;
 }
 
-body.blackground {
+body.blackground{
     background-color: rgb(35, 35, 35);
 }
 
@@ -39,7 +39,7 @@ div#nav-main button {
     text-transform: none;
     cursor: pointer;
     padding: 14px 16px;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0,0,0,0);
     color: white;
 }
 
@@ -60,7 +60,7 @@ div#nav-main-dropdown-content a {
 }
 
 div.menu-dropdown-content {
-    box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 16px 0 rgba(255,255,255,0.2);
     display: none;
     position: absolute;
     right: 0;
@@ -68,7 +68,7 @@ div.menu-dropdown-content {
 }
 
 
-div#nav-main-dropdown-content:hover button#nav-main-account-drop-down-button {
+div#nav-main-dropdown-content:hover button#nav-main-account-drop-down-button{
     background-color: rgb(37, 107, 168);
 }
 
@@ -76,13 +76,13 @@ div.menu-dropdown:hover div.menu-dropdown-content {
     display: block;
 }
 
-div.top-nav {
-    background-color: rgb(30, 30, 30);
+div.top-nav{
+    background-color: rgb(30,30,30);
     float: right;
     width: 100%;
 }
 
-div.top-nav a {
+div.top-nav a{
     float: right;
     text-align: center;
     text-decoration: none;
@@ -92,17 +92,16 @@ div.top-nav a {
     margin: 3px;
     color: white;
 }
-
-div.side-bar {
+div.side-bar{
     float: left;
     width: 160px;
     overflow-x: hidden;
     margin-top: 40px;
     padding: 40px 0 40px 0;
-    background-color: rgba(180, 180, 180, 0.5);
+    background-color: rgba(180,180,180,0.5);
 }
 
-div.side-bar a {
+div.side-bar a{
     display: block;
     text-decoration: none;
     font-size: large;
@@ -110,114 +109,100 @@ div.side-bar a {
     padding: 15px 25px;
 }
 
-div.side-bar a:hover {
-    background-color: rgba(150, 150, 150, 0.8);
+div.side-bar a:hover{
+    background-color: rgba(150,150,150,0.8);
 }
 
-div.break-line {
+div.break-line{
     height: 1px;
     background-color: lightgray;
     overflow: hidden;
     margin-top: 10px;
     margin-bottom: 10px;
 }
-
-div#main-intro-div {
+div#main-intro-div{
     text-align: center;
 
 }
-
-p#main-page-intro {
+p#main-page-intro{
     float: top;
 
     background-color: aliceblue;
 }
-
-div.instruction {
+div.instruction{
     float: left;
     width: 600px;
-    background-color: aliceblue;
+       background-color: aliceblue;
     height: 200px;
 
 }
-
-p.instruction-detail {
+p.instruction-detail{
     margin-left: 10px;
     font-size: 15px;
 
 
 }
-
-h1 {
+h1{
     margin-left: 10px;
     font-size: 30px;
 }
-
-div#teacher-instruction {
+div#teacher-instruction{
     margin-left: 50px;
 }
-
-h2 {
+h2{
     margin-left: 10px;
-    font-size: 30px;
-}
-
-div#copyright {
+    font-size: 30px;}
+div#copyright{
     float: left;
-    width: 100%;
+    width: 1250px;
     margin-top: 30px;
     background-color: aliceblue;
     text-align: center;
 
 }
-
-div.items {
+div.items{
     overflow: hidden;
-    margin-left: 40px;
-    margin-top: 40px;
+    width: 1000px;
 
     border: black solid thin;
 }
-
-img.file-icon {
+img.file-icon{
     width: 40px;
     height: 40px;
     float: left;
 
 
 }
-
-button.file-but {
+button.file-but{
     display: block;
 
 }
-
-div.file-but-containor {
+div.file-but-containor{
     float: right;
 }
-
-div.file-comment {
+div.file-comment{
     float: left;
 }
 
-.main-content {
+
+
+
+.main-content{
     float: left;
-    margin: 40px 0 20px 40px;
-    width: 1040px;
+    padding: 40px 20px 20px 40px;
 }
 
 /*Account Tab*/
-.account-tab {
+.account-tab{
     overflow: hidden;
 }
 
-.account-tab button {
+.account-tab button{
     float: left;
-    border: none;
+    border:none;
     outline: none;
     cursor: pointer;
-    font-size: 17pt;
-    padding: 20px 10px;
+    padding: 10px 5px;
     transition: 0.3s;
 }
 
