@@ -192,12 +192,14 @@ div.preview{
 .main-content {
     float: left;
     margin: 40px 0 20px 40px;
-    width: 1040px;
+    min-width: 1040px;
 }
 
 /*Account Tab*/
 .account-tab{
     overflow: hidden;
+    width: auto;
+    background-color: rgba(118, 194, 245,0.6);
 }
 
 .account-tab button{
@@ -205,8 +207,17 @@ div.preview{
     border:none;
     outline: none;
     cursor: pointer;
-    padding: 10px 5px;
+    padding: 10px 10px;
     transition: 0.3s;
+    background-color: rgba(118, 194, 245,0.6);
+    font-size: 17pt;
+}
+.account-tab button:hover{
+    background-color: rgba(118, 194, 245,0.8);
+}
+
+.account-tab button:active{
+    background-color: rgba(60, 168, 240,0.8);
 }
 
 
