@@ -1,76 +1,104 @@
-form#form-login,
-form#form-signup {
-    margin: 0 auto 0 auto;
-    width: 400px
+/*form#form-login,*/
+/*form#form-signup {*/
+/*    margin: 0 auto 0 auto;*/
+/*    width: 400px*/
+/*}*/
+
+/*form#form-login input,*/
+/*form#form-signup input {*/
+/*    width: 100%;*/
+/*    height: 25px;*/
+/*}*/
+
+/*form p {*/
+/*    color: white;*/
+/*    font-weight: bold;*/
+/*    text-align: center;*/
+/*    padding-bottom: 0;*/
+/*    margin-bottom: 5px;*/
+/*    padding-top: 15px;*/
+/*}*/
+
+/*p.form-title {*/
+/*    text-align: center;*/
+/*    font-size: 30px;*/
+/*    text-transform: uppercase;*/
+/*}*/
+
+/*form input {*/
+/*    text-align: left;*/
+/*    min-height: 32px;*/
+/*    border-radius: 2px;*/
+/*}*/
+
+/*input.form-submit {*/
+/*    margin: 30px 0 0 0;*/
+/*    padding-right: 0;*/
+/*    text-align: center;*/
+/*    background-color: rgb(52, 152, 219);*/
+/*    border-style: none;*/
+/*    font-size: 24px;*/
+/*    font-weight: bold;*/
+/*    color: white;*/
+/*    min-height: 40px;*/
+/*    min-width: 101%;*/
+/*    cursor: pointer;*/
+/*    border-radius: 4px;*/
+/*}*/
+
+/*input.form-submit:hover {*/
+/*    background-color: rgb(40, 116, 166);*/
+/*}*/
+
+/*form div {*/
+/*    margin: 15px 20px 15px 20px;*/
+/*}*/
+
+/*p#sign-up-hint {*/
+/*    text-align: center;*/
+
+/*}*/
+
+/*p#sign-up-hint a {*/
+/*    text-decoration: none;*/
+/*    color: rgb(75, 159, 232);*/
+/*}*/
+
+/*p#sign-up-hint a:visited {*/
+/*    color: rgb(75, 159, 232);*/
+/*}*/
+
+/*form p.form-error-msg {*/
+/*    color: red;*/
+/*    font-weight: bold;*/
+/*    margin-top: 0;*/
+/*    margin-bottom: 0;*/
+/*}*/
+
+
+#cover {
+    background: #222 url('https://unsplash.it/1920/1080/?random') center center no-repeat;
+    background-size: cover;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    position: relative;
 }
 
-form#form-login input,
-form#form-signup input {
+#cover-caption {
     width: 100%;
-    height: 25px;
+    position: relative;
+    z-index: 1;
 }
-
-form p {
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    padding-bottom: 0;
-    margin-bottom: 5px;
-    padding-top: 15px;
-}
-
-p.form-title {
-    text-align: center;
-    font-size: 30px;
-    text-transform: uppercase;
-}
-
-form input {
-    text-align: left;
-    min-height: 32px;
-    border-radius: 2px;
-}
-
-input.form-submit {
-    margin: 30px 0 0 0;
-    padding-right: 0;
-    text-align: center;
-    background-color: rgb(52, 152, 219);
-    border-style: none;
-    font-size: 24px;
-    font-weight: bold;
-    color: white;
-    min-height: 40px;
-    min-width: 101%;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-input.form-submit:hover {
-    background-color: rgb(40, 116, 166);
-}
-
-form div {
-    margin: 15px 20px 15px 20px;
-}
-
-p#sign-up-hint {
-    text-align: center;
-
-}
-
-p#sign-up-hint a {
-    text-decoration: none;
-    color: rgb(75, 159, 232);
-}
-
-p#sign-up-hint a:visited {
-    color: rgb(75, 159, 232);
-}
-
-form p.form-error-msg {
-    color: red;
-    font-weight: bold;
-    margin-top: 0;
-    margin-bottom: 0;
+form:before {
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0,0,0,0.3);
+    z-index: -1;
+    border-radius: 10px;
 }

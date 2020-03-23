@@ -1,9 +1,17 @@
-body {
+main {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     max-width: 1250px;
     margin: auto;
     height: 100%;
 }
+
+/*main {*/
+/*    width: 1050px;*/
+/*    margin-left: auto;*/
+/*    margin-right: auto;*/
+/*    margin-top: 1em;*/
+/*    padding: 10px;*/
+/*}*/
 
 body.blackground{
     background-color: rgb(35, 35, 35);
