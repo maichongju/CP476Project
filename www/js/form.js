@@ -1,36 +1,23 @@
-var sign_up_check = function (event) {
-    var password = document.querySelector("form#form-signup input[name=password]"),
-        cpassword = document.querySelector("form#form-signup input[name=cpassword]"),
-        username = document.querySelector("form#form-signup input[name=username]");
+$("form#form-signup").submit(function (event) {
+    var password = $("form#form-signup input[name=password]")[0],
+        cpassword = $("form#form-signup input[name=cpassword]")[0],
+        username = $("form#form-signup input[name=username]")[0];
+    // clean up the username
     username.value = username.value.trimStart().trimEnd();
-    cleanupError();
+
+    let div_error_msg = $("div .error-msg-group");
+
+    // clean up all the error if exist
+    div_error_msg.empty();
+
     if (password.value !== cpassword.value) {
-        if (document.getElementById("error-password-not-match") === null) {
-            var errorNode = document.createElement("p"),
-                errorMessage = document.createTextNode("The password you enter did not match.");
-            errorNode.appendChild(errorMessage);
-            errorNode.setAttribute("class", "form-error-msg");
-            errorNode.setAttribute("id","error-password-not-match");
-            password.parentElement.insertBefore(errorNode, password.nextSibling);
-        }
-
+        // password not match ,create error message
+        let errorMsg = $("<h5 class='form-text text-danger'>The password you enter did not match.</h5>");
+        div_error_msg.append(errorMsg);
+        password.value = "";
+        cpassword.value = "";
+        password.focus();
         event.preventDefault();
-    } else {
-        if (document.getElementById("error-password-not-match") !== null)
-            document.getElementById("error-password-not-match").remove();
     }
+})
 
-    function cleanupError(){
-        let errors = document.querySelectorAll(".form-error-msg");
-        errors.forEach(
-            function (currentValue,currentIndex, listObj) {
-                currentValue.parentNode.removeChild(currentValue);
-            }
-        )
-    }
-
-};
-
-if (document.querySelector("form#form-signup") !== null) {
-    document.querySelector("form#form-signup").addEventListener("submit", sign_up_check);
-}
