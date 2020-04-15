@@ -23,7 +23,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             session_start();
             $_SESSION["loggedin"] = true;
             $_SESSION["user"] = serialize($user);
-
+            $expire_time = time() + 60 * 60 * 24 * 30;
+            setcookie("username",$username,$expire_time);
             header("location: index.php");
         }
     } catch (PDOException $e) {
@@ -34,7 +35,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
     }
 }
-
+// Try to get username form cookie
+if (isset($_COOKIE["username"])) {
+    $username = $_COOKIE["username"];
+}
 ?>
 <!doctype html>
 <html>
@@ -45,23 +49,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <link href="css/form.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
-
-
-<!--        <form class="form mx-auto" action="login.php" method="post">-->
-<!--            <div>-->
-<!--                <p class="form-title">Log in</p>-->
-<!--                <p>Username</p>-->
-<!--                <input type="text" name="username" placeholder="Username" required>-->
-<!--                <p>Password</p>-->
-<!--                <input type="password" name="password" placeholder="Password" , required>-->
-<!--                --><?php //if ($error_msg !== null) {
-//                    echo "<p class=\"form-error-msg\">" . $error_msg . "</p>";
-//                } ?>
-<!--                <input type="submit" class="form-submit">-->
-<!--                <p id="sign-up-hint">Don't have an account? Sign up <a href="signup.php">here</a></p>-->
-<!--            </div>-->
-<!---->
-<!--        </form>-->
 <body>
 <section id="cover" class="min-vh-100">
     <div id="cover-caption">
@@ -80,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                                                          aria-hidden="true"></span></span>
                                     </div>
                                     <input id="usernameinput" name="username" type="text" class="form-control"
-                                           placeholder="Username">
+                                           placeholder="Username" <?php if (isset($username)) echo "value='" . $username . "'" ?>>
                                 </div>
 
                             </div>
@@ -95,7 +82,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                            placeholder="password">
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <?php if ($error_msg !== null) {
+                                    echo "<h5 class=\"form-text text-danger error-msg\">" . $error_msg . "</h5>";
+                                } ?>
+                            </div>
                             <button type="submit" class="btn btn-primary btn-lg">Login</button>
+
+                            <p class="form-text text-white mt-3">Don't have an account? <a href="signup.php">Sign up
+                                    here</a>
+                            </p>
+
                         </form>
                     </div>
                 </div>
