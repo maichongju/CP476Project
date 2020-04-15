@@ -11,12 +11,12 @@ function openAccountTab(event, tabName) {
     tablinks = document.getElementsByClassName("account-tab-links");
 
     for (i = 0; i < tablinks.length; i++) {
-        tablinks[i] .className = tablinks[i].className.replace("active","");
+        tablinks[i] .className = tablinks[i].className.replace(" active","");
     }
 
     //show the active tab
     document.getElementById(tabName).style.display= "block";
-    event.currentTarget.className += "active";
+    event.currentTarget.className += " active";
     //Test
 }
 document.getElementById("account-tab-default").click();
