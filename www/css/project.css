@@ -101,7 +101,7 @@ div.top-nav a{
     color: white;
 }
 div.side-bar{
-    float: left;
+    /*float: left;*/
     width: 160px;
     overflow-x: hidden;
     margin-top: 40px;
