@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once "util/pageInitial.php"
 ?>
 
 <html lang="en">
@@ -13,7 +13,7 @@ session_start();
 <div class="container">
     <div class="row">
         <!-- top bar -->
-        <?php require_once "topbar.php" ?>
+        <?php include "topbar.php" ?>
     </div>
     <div class="row mt-3">
         <!--side nav bar -->

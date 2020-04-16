@@ -1,18 +1,5 @@
 <?php
-session_start();
-
-// Check if it is logged in
-if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"]){
-    if (isset($_SESSION["user"])){
-        $user = unserialize($_SESSION["user"]);
-        // Log in success
-    }else{
-        // something went wrong. Logout and redirect back to login page
-        setcookie("ERROR",errorMsg::SESSION_EXPIRED_ERROR);
-        $_SESSION["loggedin"] = false;
-        header("location: login.php");
-    }
-}
+require_once "util/pageInitial.php"
 ?>
 
 <!doctype html>

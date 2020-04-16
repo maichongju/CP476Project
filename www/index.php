@@ -1,21 +1,12 @@
 <?php
 session_start();
-if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    // If user try to logout
-    if (isset($_GET["logout"]) && $_GET["logout"] === "true" && isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
-        unset($_GET["logout"]);
-        $_SESSION = null;
-        session_destroy();
-        header("index.php");
-    }
-}
+
 
 require_once "util/user.php";
 
 $username = "ERROR";
 if (isset($_SESSION["loggedin"])) {
-    $user = unserialize($_SESSION["user"]);
-    $username = $user->getUsername();
+    $username =$_SESSION["username"];
 }
 
 ?>
@@ -39,9 +30,10 @@ if (isset($_SESSION["loggedin"])) {
                 <div class="menu-dropdown" id="nav-main-account-dropdown">
                     <button id="nav-main-account-drop-down-button"><?php echo $username ?></button>
                     <div class="menu-dropdown-content" id="nav-main-dropdown-content">
-                        <a href="account.php">Account Detail</a>
-                        <a href="?logout=true" id="nav-logout">Log out</a>
+                        <a href="setting.php">Account Detail</a>
+                        <a href="logout.php" id="nav-logout">Log out</a>
                     </div>
+                </div>
                 </div>
                 <a href="#">My Panel</a>
             <?php else: ?>

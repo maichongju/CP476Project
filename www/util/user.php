@@ -7,9 +7,10 @@ class User
     private $userid = -1;
     private $role = null;
     
-    public function __construct($username, $userid){
+    public function __construct($username, $userid, $role){
         $this->username = $username;
         $this->userid = $userid;
+        $this->role = $role;
     }
 
     public function getUsername(){
@@ -17,7 +18,7 @@ class User
     }
 
     public function getUserId(){
-        $this->userid;
+        return $this->userid;
     }
 
     public function getRole(){

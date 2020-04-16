@@ -28,7 +28,7 @@ class userUtil{
         $user = null;
         $conn = $database->getConnection();
 
-        $sql = "SELECT id, password from user where username = ?";
+        $sql = "SELECT id, password, role from user where username = ?";
         $stmt = $conn->prepare($sql);
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $stmt->bindParam(1,$username);
@@ -38,9 +38,10 @@ class userUtil{
             if (count($result) === 1){
                 $userid = $result[0]["id"];
                 $h_pwd = $result[0]["password"];
+                $userrole = $result[0]["role"];
                 // If password match
                 if (password_verify($password,$h_pwd)){
-                    $user = new User($username,$userid);
+                    $user = new User($username,$userid,$userrole);
                 }
             }
         }

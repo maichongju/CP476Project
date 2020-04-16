@@ -9,6 +9,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
 $error_msg = null;
 
 require_once "util/userUtil.php";
+require_once "util/user.php";
 require_once "util/errorMsg.php";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -20,9 +21,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $error_msg = ErrorMsg::DATABASE_USERNAME_PASSWORD_ERROR;
         } else {
             // login success
-            session_start();
             $_SESSION["loggedin"] = true;
-            $_SESSION["user"] = serialize($user);
+            $_SESSION["username"] = $user->getUsername();
+            $_SESSION["userid"] = $user->getUserId();
+            $_SESSION["userrole"] = $user->getRole();
             $expire_time = time() + 60 * 60 * 24 * 30;
             setcookie("username",$username,$expire_time);
             header("location: index.php");
