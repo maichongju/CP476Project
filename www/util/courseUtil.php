@@ -14,8 +14,8 @@ class courseUtil
         $stmt->bindParam(1,$userid);
         if ($stmt->execute()){
             $result = $stmt->fetchAll();
+            $courses = array();
             if (count($result) > 0){
-                $courses = array();
                 foreach ($result as $item){
                     array_push($courses,$item);
                 }

@@ -76,7 +76,7 @@ if (!isset($_GET["id"])) {
         <!--side nav bar -->
         <?php require_once "sidebar.php" ?>
 
-        <div class="col-sm-9 col-md-10 col-lg-10">
+        <div class="col-sm-9 col-md-10 col-lg-10 mt-3">
             <?php if (isset($course)) {
                 $course_size = count($course);
                 // display all courses
@@ -91,7 +91,7 @@ if (!isset($_GET["id"])) {
                     $row = intdiv($course_size, 2);
                     $index = 0;
                     for ($i = 0; $i < $row; $i++) {
-                        echo "<div class='row mt-3'>";
+                        echo "<div class='row mb-3'>";
                         for ($j = 0; $j < 2; $j++) { ?>
                             <a class="col-md-6 course-link" href="<?php echo "#?id=" . $course[$index]["id"] ?>">
                                 <div class="card">
@@ -109,7 +109,7 @@ if (!isset($_GET["id"])) {
                         echo "</div>";
                     }
                     if ($index < $course_size) { ?>
-                        <div class="row mt-3">
+                        <div class="row mb-3">
                             <a class="col-md-6 course-link" href="<?php echo "#?id=" . $course[$index]["id"] ?>">
                                 <div class="card">
                                     <img class="card-img-top" src="images/default-thumbnail.jpg" alt="thumbnail">
