@@ -16,5 +16,5 @@ class ErrorMsg{
 
     //FILE
     public const FILE_AUTHENTICATE_ERROR = "You don't have permission access this file";
-
+    public const FILE_EMPTY_FILE_WARNING = "There are no file can be download for the course";
 }

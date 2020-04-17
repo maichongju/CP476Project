@@ -17,7 +17,11 @@ if (!isset($_GET["id"])) {
 <head>
     <?php require_once "include/header.php" ?>
     <link href="css/project.css" rel="stylesheet">
-    <title>Course</title>
+    <title>Course <?php
+        if (isset($course) && !isset($course["error"])) {
+            echo " - " . strtoupper($course["id"]) . " " . $course["name"];
+        }
+        ?></title>
 </head>
 <div class="container">
     <div class="row">
@@ -85,32 +89,41 @@ if (!isset($_GET["id"])) {
                         $errmsg = $course["error"];
                     } else {
                         $server_error = false;
-                        foreach ($course["files"] as $file) {
+                        if (count($course["files"]) == 0) {
                             ?>
-                            <div class="card ">
-                                <div class="card-header ">
-                                    <p class="card-title h4"><span
-                                                class="text-truncate"><?php echo $file["name"] ?></span>
-                                    </p>
-                                </div>
-                                <div class="card-block card-body">
-                                    <div class="row">
-                                        <div class="col-lg-9">
-                                            <p class="card-title"><img width="24px" height="24px"
-                                                                       src="images/icon/icon-pdf.png" alt=""
-                                                                       title="pdf"> <span
-                                                        class="card-subtitle h6 small text-muted"><?php echo fileUtil::convertFileSize($file["size"]) ?></span>
-                                            </p>
-                                            <p class="card-text text-truncate"><?php echo $file["description"] ?></p>
-                                        </div>
-                                        <div class="col-lg-3">
-                                            <a class="btn btn-outline-primary btn-block " href="preview.php?id=<?php echo $file["id"] ?>">Preview</a>
-                                            <a class="btn btn-outline-dark btn-block" href="#">Download</a>
+                            <div class="alert alert-warning" role="alert">
+                                <?php echo ErrorMsg::FILE_EMPTY_FILE_WARNING ?>
+                            </div>
+                            <?php
+                        } else {
+                            foreach ($course["files"] as $file) {
+                                ?>
+                                <div class="card ">
+                                    <div class="card-header ">
+                                        <p class="card-title h4"><span
+                                                    class="text-truncate"><?php echo $file["name"] ?></span>
+                                        </p>
+                                    </div>
+                                    <div class="card-block card-body">
+                                        <div class="row">
+                                            <div class="col-lg-9">
+                                                <p class="card-title"><img width="24px" height="24px"
+                                                                           src="images/icon/icon-pdf.png" alt=""
+                                                                           title="pdf"> <span
+                                                            class="card-subtitle h6 small text-muted"><?php echo fileUtil::convertFileSize($file["size"]) ?></span>
+                                                </p>
+                                                <p class="card-text text-truncate"><?php echo $file["description"] ?></p>
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <a class="btn btn-outline-primary btn-block "
+                                                   href="preview.php?id=<?php echo $file["id"] ?>">Preview</a>
+                                                <a class="btn btn-outline-dark btn-block" href="#">Download</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <?php
+                                <?php
+                            }
                         }
 
                     }

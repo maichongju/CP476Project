@@ -40,17 +40,21 @@ class courseUtil
 
         $sql_CheckCourse = "select * from course where id = ?;";
         $sql_Authenticate = "select * from user_course where userid = ? and courseid = ?;";
+        $sql_Course = "select id, name from course where id = ?";
         $sql = "select id , name, description, size, extension  from file where courseId = ?;";
+
+        // Check Course exist
         $stmt = $conn->prepare($sql_CheckCourse);
         $stmt->bindParam(1,$courseid);
         if ($stmt->execute()){
             if ($stmt->rowCount() === 1){
+                // Check if user Authenticate
                 $stmt = $conn->prepare($sql_Authenticate);
                 $stmt->bindParam(1,$userid);
                 $stmt->bindParam(2,$courseid);
                 if ($stmt->execute()){
-                    // There is 1 match
                     if ($stmt->rowCount() === 1){
+                        // Get course file detail
                         $stmt = $conn->prepare($sql);
                         $stmt->setFetchMode(PDO::FETCH_ASSOC);
                         $stmt->bindParam(1,$courseid);
@@ -60,6 +64,15 @@ class courseUtil
                             // Add each result to the result
                             foreach ($result as $item){
                                 array_push($course["files"],$item);
+                            }
+                            // Get Course info
+                            $stmt = $conn->prepare($sql_Course);
+                            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+                            $stmt->bindParam(1,$courseid);
+                            if ($stmt->execute()){
+                                $result = $stmt->fetchAll();
+                                $course["id"] = $courseid;
+                                $course["name"] = $result[0]["name"];
                             }
                         }
                     }else{
