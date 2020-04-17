@@ -45,6 +45,7 @@ class userUtil{
                 }
             }
         }
+        $database->closeConnection();
         return $user;
     }
 
