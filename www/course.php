@@ -93,7 +93,7 @@ if (!isset($_GET["id"])) {
                     for ($i = 0; $i < $row; $i++) {
                         echo "<div class='row mb-3'>";
                         for ($j = 0; $j < 2; $j++) { ?>
-                            <a class="col-md-6 course-link" href="<?php echo "#?id=" . $course[$index]["id"] ?>">
+                            <a class="col-md-6 course-link" href="<?php echo "?id=" . $course[$index]["id"] ?>">
                                 <div class="card">
                                     <img class="card-img-top" src="images/default-thumbnail.jpg" alt="thumbnail">
                                     <div class="card-body">
@@ -110,7 +110,7 @@ if (!isset($_GET["id"])) {
                     }
                     if ($index < $course_size) { ?>
                         <div class="row mb-3">
-                            <a class="col-md-6 course-link" href="<?php echo "#?id=" . $course[$index]["id"] ?>">
+                            <a class="col-md-6 course-link" href="<?php echo "?id=" . $course[$index]["id"] ?>">
                                 <div class="card">
                                     <img class="card-img-top" src="images/default-thumbnail.jpg" alt="thumbnail">
                                     <div class="card-body">
