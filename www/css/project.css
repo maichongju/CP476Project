@@ -235,3 +235,12 @@ div.preview{
     border-top: none;
     width: 1040px;
 }
+
+a.course-link{
+    text-decoration: none;
+    color: #4D5052;
+}
+
+a.course-link:hover{
+    text-decoration: underline;
+}
