@@ -1,5 +1,6 @@
 <?php
-require_once "util/pageInitial.php";
+require_once "include/pageInitial.php";
+require_once "util/userUtil.php";
 require_once "util/courseUtil.php";
 require_once "util/fileUtil.php";
 require_once "util/errorMsg.php";
@@ -33,7 +34,10 @@ if (!isset($_GET["id"])) {
         <?php require_once "sidebar.php" ?>
 
         <div class="col-sm-9 col-md-10 col-lg-10 mt-3">
-            <?php if (isset($courses)) {
+            <?php if (userUtil::isAdmin() && isset($course) && !isset($course["error"])) { ?>
+                    <a href="upload.php?id=<?php echo $course["id"] ?>" class="btn btn-outline-info mb-3 col-lg-2 col-md-12">Upload</a>
+            <?php }
+            if (isset($courses)) {
                 $course_size = count($courses);
                 // display all courses
                 if ($course_size === 0) {
@@ -118,6 +122,11 @@ if (!isset($_GET["id"])) {
                                                 <a class="btn btn-outline-primary btn-block "
                                                    href="preview.php?id=<?php echo $file["id"] ?>">Preview</a>
                                                 <a class="btn btn-outline-dark btn-block" href="#">Download</a>
+                                                <?php
+                                                if ($_SESSION["userrole"] < 2) {
+                                                    echo '<a class="btn btn-outline-danger btn-block" href="#">Delete</a>';
+                                                }
+                                                ?>
                                             </div>
                                         </div>
                                     </div>

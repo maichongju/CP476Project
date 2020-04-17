@@ -1,5 +1,5 @@
 <?php
-require_once "util/pageInitial.php";
+require_once "include/pageInitial.php";
 require_once "util/fileUtil.php";
 
 ?>

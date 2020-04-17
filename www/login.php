@@ -41,6 +41,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 if (isset($_COOKIE["username"])) {
     $username = $_COOKIE["username"];
 }
+
+if (isset($_COOKIE["ERROR"])){
+    $error_msg = $_COOKIE["ERROR"];
+    setcookie("ERROR","",time()-3600);
+}
 ?>
 <!doctype html>
 <html>
@@ -78,7 +83,7 @@ if (isset($_COOKIE["username"])) {
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                     <span class="input-group-text"><span class="oi oi-lock-locked" title="lock-locked"
-                                                                         aria-hidden="true"></span></span>
+                                                                         aria-hidden="true" style="width: 16px"></span></span>
                                     </div>
                                     <input id="passwordinput" name="password" type="password" class="form-control"
                                            placeholder="password">

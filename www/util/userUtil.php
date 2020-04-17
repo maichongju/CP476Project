@@ -49,6 +49,9 @@ class userUtil{
         return $user;
     }
 
+    public static function isAdmin(){
+        return $_SESSION["userrole"] == 0 || $_SESSION["userrole"] == 1;
+    }
 }
 
 

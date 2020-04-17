@@ -23,7 +23,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // login success
             session_start();
             $_SESSION["loggedin"] = true;
-            $_SESSION["user"] = serialize($user);
+            $_SESSION["username"] = $user->getUsername();
+            $_SESSION["userid"] = $user->getUserId();
+            $_SESSION["userrole"] = $user->getRole();
 
             header("location: index.php");
         }
