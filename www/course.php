@@ -104,7 +104,7 @@ if (!isset($_GET["id"])) {
                                             <p class="card-text text-truncate"><?php echo $file["description"] ?></p>
                                         </div>
                                         <div class="col-lg-3">
-                                            <a class="btn btn-outline-primary btn-block " href="preview.php?id= <?php echo $file["id"] ?>">Preview</a>
+                                            <a class="btn btn-outline-primary btn-block " href="preview.php?id=<?php echo $file["id"] ?>">Preview</a>
                                             <a class="btn btn-outline-dark btn-block" href="#">Download</a>
                                         </div>
                                     </div>
