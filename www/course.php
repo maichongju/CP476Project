@@ -11,6 +11,9 @@ if (!isset($_GET["id"])) {
 } else {
     $course = courseUtil::getCourse($_SESSION["userid"], $_GET["id"]);
 }
+
+unset($_SESSION["courseid"]);
+unset($_SESSION["coursename"]);
 ?>
 
 <!doctype html>
@@ -93,6 +96,8 @@ if (!isset($_GET["id"])) {
                         $errmsg = $course["error"];
                     } else {
                         $server_error = false;
+                        $_SESSION["courseid"] = $course["id"];
+                        $_SESSION["coursename"] = $course["name"];
                         if (count($course["files"]) == 0) {
                             ?>
                             <div class="alert alert-warning" role="alert">

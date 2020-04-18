@@ -11,6 +11,8 @@
             <?php
             if (isset($course)&& !isset($course["error"])){
                 echo strtoupper($course["id"]) . " - " . $course["name"];
+            }else if (isset($_SESSION["courseid"]) && isset($_SESSION["coursename"])){
+                echo strtoupper($_SESSION["courseid"]) . " - " . $_SESSION["coursename"];
             }
             ?>
             </h3>

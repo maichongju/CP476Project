@@ -49,11 +49,18 @@ require_once "util/fileUtil.php";
                     <div class="form-group">
                         <p class="form-text" id="file-size-text"></p>
                     </div>
-                    <button type="submit" class="btn btn-primary">Upload</button>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Upload</button>
+
+                    </div>
+                    <div class="progress form-group" id="upload-progress" hidden>
+                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                             aria-valuemax="100" id="file-upload-progress-bar"></div>
+                    </div>
+                    <div id="file-upload-result">
+                    </div>
                 </div>
-
             </form>
-
 
         </div>
     </div>

@@ -17,4 +17,7 @@ class ErrorMsg{
     //FILE
     public const FILE_AUTHENTICATE_ERROR = "You don't have permission access this file";
     public const FILE_EMPTY_FILE_WARNING = "There are no file can be download for the course";
+    public const FILE_FILE_EXIST_WARNING = "This file existed, please try and upload different file";
+    public const FILE_FILE_UPLOAD_ERROR = "There are something wrong, please try again later";
+    public const FILE_FILE_UPLOAD_SUCCESS = "File uploaded";
 }
