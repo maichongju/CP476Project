@@ -12,9 +12,16 @@ let closeSpan = $('  <button type="button" class="close" data-dismiss="alert" ar
     '    <span aria-hidden="true">&times;</span>\n' +
     '  </button>');
 
-function createErrorAlert(msg){
+function createUploadErrorAlert(msg){
     let errorNode = $("<div class='alert alert-danger' role='alert'> </div>");
     errorNode.html("<strong>Upload Failed: </strong>" + msg);
+    errorNode.append(closeSpan);
+    return errorNode;
+}
+
+function createErrorAlert(msg){
+    let errorNode = $("<div class='alert alert-danger' role='alert'> </div>");
+    errorNode.html(msg);
     errorNode.append(closeSpan);
     return errorNode;
 }
@@ -33,14 +40,27 @@ function createSuccessAlert(msg){
     return node;
 }
 
+function validFileSize(size){
+    const maxsize = 1024*1024*35;
+    return size <= maxsize;
+}
+
 $("#upload-file-input").change(function () {
+    $("#file-upload-result").empty();
     const input = $("#upload-file-input")[0];
-    if (input.files.length > 0) {
-        $("#file-detail-group").prop("hidden", false);
-        const file = input.files[0];
-        $("#display-name").val(file.name)
-        $("#file-name").val(file.name);
-        $("#file-size-text").text("Size: " + convertFileSize(file.size));
+    if (input.files.length > 0 ) {
+        if (validFileSize(input.files[0].size)){
+            $("#file-detail-group").prop("hidden", false);
+            const file = input.files[0];
+            $("#display-name").val(file.name)
+            $("#file-name").val(file.name);
+            $("#file-size-text").text("Size: " + convertFileSize(file.size));
+        }else{
+            let node = createErrorAlert("File Max Size is 35MB, please upload a smaller file")
+            $("#file-upload-result").append(node);
+            $("#upload-file-input").val("");
+        }
+
     }
 })
 $("form").submit(function (event) {
@@ -72,7 +92,7 @@ $("form").submit(function (event) {
                     $("#file-upload-result").append(node);
                 }else if (!result.result){
                     if (result.hasOwnProperty("error")){
-                        let node = createErrorAlert(result.error);
+                        let node = createUploadErrorAlert(result.error);
                         $("#file-upload-result").append(node);
                     }else if (result.hasOwnProperty("warning")){
                         let node = createWarningAlert(result.warning);
@@ -82,7 +102,7 @@ $("form").submit(function (event) {
             }
         },
         error: function (_,status,error) {
-            let node = createErrorAlert("There are something wrong, please try again later");
+            let node = createUploadErrorAlert("There are something wrong, please try again later");
             $("#file-upload-result").append(node);
             console.log(status);
             console.log(error);

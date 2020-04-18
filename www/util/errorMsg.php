@@ -20,4 +20,5 @@ class ErrorMsg{
     public const FILE_FILE_EXIST_WARNING = "This file existed, please try and upload different file";
     public const FILE_FILE_UPLOAD_ERROR = "There are something wrong, please try again later";
     public const FILE_FILE_UPLOAD_SUCCESS = "File uploaded";
+    public const FILE_DIRECTORY_CREATE_ERROR = "There are something wrong, please try again later (3)";
 }

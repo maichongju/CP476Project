@@ -27,7 +27,7 @@ require_once "util/fileUtil.php";
                 <div class="form-group">
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" id="upload-file-input">
-                        <label class="custom-file-label" for="upload-file-input">Choose file</label>
+                        <label class="custom-file-label" for="upload-file-input">Choose file (Max Size 35M)</label>
                     </div>
                 </div>
                 <div class="form-group" id="file-detail-group" hidden>
@@ -57,8 +57,8 @@ require_once "util/fileUtil.php";
                         <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
                              aria-valuemax="100" id="file-upload-progress-bar"></div>
                     </div>
-                    <div id="file-upload-result">
-                    </div>
+                </div>
+                <div id="file-upload-result">
                 </div>
             </form>
 

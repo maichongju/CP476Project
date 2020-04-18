@@ -107,7 +107,7 @@ unset($_SESSION["coursename"]);
                         } else {
                             foreach ($course["files"] as $file) {
                                 ?>
-                                <div class="card ">
+                                <div class="card mb-3">
                                     <div class="card-header ">
                                         <p class="card-title h4"><span
                                                     class="text-truncate"><?php echo $file["name"] ?></span>
@@ -142,7 +142,6 @@ unset($_SESSION["coursename"]);
 
                     }
                 }
-
                 if ($server_error) { ?>
                     <div class="alert alert-danger" role="alert">
                         <?php if (isset($errmsg)) {
@@ -154,9 +153,7 @@ unset($_SESSION["coursename"]);
                     <?php
                 }
                 ?>
-
                 <?php
-
             } ?>
 
         </div>

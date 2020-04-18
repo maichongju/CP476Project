@@ -73,4 +73,33 @@ class fileUtil
         $database->closeConnection();
         return $result;
     }
+
+    public static function delete($userid,$courseid,$hash){
+        $result = false;
+
+        $database = new DbConnect();
+        $conn = $database->getConnection();
+
+
+        $sql_Authenticate = "select count(userid) as result from user_course where userid = ? and courseid = ?;";
+        $sql_delete = "delete from file where hash = ? and courseId = ?";
+
+        $stmt = $conn->prepare($sql_Authenticate);
+        $stmt->bindParam(1,$userid);
+        $stmt->bindParam(2,$courseid);
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        // Check if user is authenticate
+        if ($stmt->execute()){
+            $stmt = $conn->prepare($sql_delete);
+            $stmt->bindParam(1,$hash);
+            $stmt->bindParam(2,$courseid);
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            if ($stmt->execute()){
+                $result = true;
+            }
+        }
+
+        $database->closeConnection();
+        return $result;
+    }
 }
