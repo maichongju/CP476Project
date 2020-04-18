@@ -10,7 +10,7 @@ require_once "util/fileUtil.php";
 <head>
     <?php require_once "include/header.php" ?>
     <link href="css/project.css" rel="stylesheet">
-    <title>Preview</title>
+    <title>Upload</title>
 </head>
 <div class="container">
     <div class="row">

@@ -38,7 +38,8 @@ unset($_SESSION["coursename"]);
 
         <div class="col-sm-9 col-md-10 col-lg-10 mt-3">
             <?php if (userUtil::isAdmin() && isset($course) && !isset($course["error"])) { ?>
-                    <a href="upload.php?id=<?php echo $course["id"] ?>" class="btn btn-outline-info mb-3 col-lg-2 col-md-12">Upload</a>
+                <a href="upload.php?id=<?php echo $course["id"] ?>"
+                   class="btn btn-outline-info mb-3 col-lg-2 col-md-12">Upload</a>
             <?php }
             if (isset($courses)) {
                 $course_size = count($courses);
@@ -126,10 +127,12 @@ unset($_SESSION["coursename"]);
                                             <div class="col-lg-3">
                                                 <a class="btn btn-outline-primary btn-block "
                                                    href="preview.php?id=<?php echo $file["id"] ?>">Preview</a>
-                                                <a class="btn btn-outline-dark btn-block" href="#">Download</a>
+                                                <button class="btn btn-outline-dark btn-block"
+                                                        value="<?php echo $file["id"] ?>">Download
+                                                </button>
                                                 <?php
                                                 if ($_SESSION["userrole"] < 2) {
-                                                    echo '<a class="btn btn-outline-danger btn-block" href="#">Delete</a>';
+                                                    echo '<button class="btn btn-outline-danger btn-block" id="delete-record" value="' . $file["id"] . '">Delete</button>';
                                                 }
                                                 ?>
                                             </div>
@@ -159,52 +162,3 @@ unset($_SESSION["coursename"]);
         </div>
     </div>
 </div>
-<!--<body>-->
-<?php //require_once "topbar.php" ?>
-<!--<div>-->
-<!--    --><?php //require_once "sidebar.php" ?>
-<!--    <div class="main-content">-->
-<!--        <div class="items">-->
-<!--            <header class="file-title">assignment1</header>-->
-<!--            <img class="file-icon" src="images/icon-word.png">-->
-<!--            <div class="file-comment">-->
-<!--                <p>due next week</p>-->
-<!--            </div>-->
-<!--            <div class="file-but-containor">-->
-<!--                <button class="file-but">Preview</button>-->
-<!---->
-<!--                <button class="file-but">Download</button>-->
-<!--            </div>-->
-<!---->
-<!--        </div>-->
-<!--        <div class="items">-->
-<!--            <header class="file-title">assignment2</header>-->
-<!--            <img class="file-icon" src="images/icon-word.png">-->
-<!--            <div class="file-comment">-->
-<!--                <p>haven't posted week</p>-->
-<!--            </div>-->
-<!--            <div class="file-but-containor">-->
-<!--                <button class="file-but">Preview</button>-->
-<!---->
-<!--                <button class="file-but">Download</button>-->
-<!--            </div>-->
-<!---->
-<!--        </div>-->
-<!--        <div class="items">-->
-<!--            <header class="file-title">lecture1</header>-->
-<!--            <img class="file-icon" src="images/icon-word.png">-->
-<!--            <div class="file-comment">-->
-<!--                <p>will be updated</p>-->
-<!--            </div>-->
-<!--            <div class="file-but-containor">-->
-<!--                <button class="file-but">Preview</button>-->
-<!---->
-<!--                <button class="file-but">Download</button>-->
-<!--            </div>-->
-<!---->
-<!--        </div>-->
-<!---->
-<!--    </div>-->
-<!---->
-<!--</div>-->
-<!--</div>-->
