@@ -14,6 +14,35 @@ if (!isset($_GET["id"])) {
 
 unset($_SESSION["courseid"]);
 unset($_SESSION["coursename"]);
+
+$icon_ext = array(
+    "pdf" => "icons8-pdf.png",
+    "excel" => "icons8-excel.png",
+    "ppt" => "icons8-ppt.png",
+    "other" => "icons8-file.png",
+    "txt" => "icons8-txt.png",
+    "word" => "icons8-word.png"
+);
+
+function getFileIcon($ext){
+    global  $icon_ext;
+    $ext = strtolower($ext);
+    $result = "images\icon\\";
+    if (array_key_exists($ext, $icon_ext)){
+        $result.= $icon_ext[$ext];
+    }else{
+        if ($ext == "ppt" || $ext == "pptx"){
+            $result .= $icon_ext["ppt"];
+        }elseif ($ext == "doc" || $ext == "docx"){
+            $result .= $icon_ext["word"];
+        }elseif ($ext == "xls" || $ext == "xlsx"){
+            $result .= $icon_ext["excel"];
+        }else{
+            $result .= $icon_ext["other"];
+        }
+    }
+    return $result;
+}
 ?>
 
 <!doctype html>
@@ -89,7 +118,9 @@ unset($_SESSION["coursename"]);
 
                 }
 
-            } else {
+            }
+            // Individual course display
+            else {
                 $server_error = true;
                 // Need to check if it is id exist
                 if (isset($_GET["id"]) && isset($course)) {
@@ -118,8 +149,8 @@ unset($_SESSION["coursename"]);
                                         <div class="row">
                                             <div class="col-lg-9">
                                                 <p class="card-title"><img width="24px" height="24px"
-                                                                           src="images/icon/icon-pdf.png" alt=""
-                                                                           title="pdf"> <span
+                                                                           src="<?php echo getFileIcon($file["extension"]) ?>" alt=""
+                                                                           title="<?php echo $file["extension"] ?>"> <span
                                                             class="card-subtitle h6 small text-muted"><?php echo fileUtil::convertFileSize($file["size"]) ?></span>
                                                 </p>
                                                 <p class="card-text text-truncate"><?php echo $file["description"] ?></p>
