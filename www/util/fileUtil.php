@@ -22,6 +22,7 @@ class fileUtil
     public static function upload($userid, $courseid, $name, $desc, $path, $size, $hash, $extension)
     {
         $result = null;
+        $path = "$courseid/$path";
         $database = new DbConnect();
         $conn = $database->getConnection();
 

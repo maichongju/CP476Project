@@ -12,7 +12,7 @@ if (!empty($_POST)) {
         $courseid = strtolower($_SESSION["courseid"]);
         $name = $_POST["name"];
         $filename = basename($_FILES["file"]["name"]);
-        $path = "file/" . $_FILES["file"]["name"];
+        $path = $_FILES["file"]["name"];
         $desc = $_POST["description"];
         $size = $_FILES["file"]["size"];
         $ext = pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION);
@@ -27,8 +27,8 @@ if (!empty($_POST)) {
             $result = fileUtil::upload($userid, $courseid, $name, $desc, $path, $size, $file_hash, $ext);
             if (isset($result["result"])) {
                 // Make check if sub directory exist, if not create one
-                if (!file_exists($dir/$courseid)){
-                    mkdir($dir/$courseid);
+                if (!file_exists("$dir/$courseid")){
+                    mkdir("$dir/$courseid");
                 }
                 if (move_uploaded_file($_FILES["file"]["tmp_name"], "$dir/$courseid/$filename")) {
                     $result_["result"] = true;

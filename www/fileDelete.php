@@ -10,7 +10,7 @@ if (!empty($_POST)){
             $result["result"] = true;
             $path = $r["path"];
             $courseid = $_SESSION["courseid"];
-            $fullpath = "file/$courseid/$path";
+            $fullpath = "file/$path";
             if (file_exists($fullpath)){
                 unlink($fullpath);
             }
