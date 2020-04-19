@@ -84,22 +84,28 @@ $("form").submit(function (event) {
         },
         success: function (raw) {
             console.log(raw);
-            let result = JSON.parse(raw);
-            if (result.hasOwnProperty("result")){
-                // If file insert succeeded
-                if (result.result && result.hasOwnProperty("msg")){
-                    let node = createSuccessAlert(result.msg);
-                    $("#file-upload-result").append(node);
-                }else if (!result.result){
-                    if (result.hasOwnProperty("error")){
-                        let node = createUploadErrorAlert(result.error);
+            try{
+                let result = JSON.parse(raw);
+                if (result.hasOwnProperty("result")){
+                    // If file insert succeeded
+                    if (result.result && result.hasOwnProperty("msg")){
+                        let node = createSuccessAlert(result.msg);
                         $("#file-upload-result").append(node);
-                    }else if (result.hasOwnProperty("warning")){
-                        let node = createWarningAlert(result.warning);
-                        $("#file-upload-result").append(node);
+                    }else if (!result.result){
+                        if (result.hasOwnProperty("error")){
+                            let node = createUploadErrorAlert(result.error);
+                            $("#file-upload-result").append(node);
+                        }else if (result.hasOwnProperty("warning")){
+                            let node = createWarningAlert(result.warning);
+                            $("#file-upload-result").append(node);
+                        }
                     }
                 }
+            }catch (e) {
+                let node = createUploadErrorAlert("Something wrong with our side, please try again later");
+                $("#file-upload-result").append(node);
             }
+
         },
         error: function (_,status,error) {
             let node = createUploadErrorAlert("There are something wrong, please try again later");

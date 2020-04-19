@@ -9,7 +9,7 @@ if (!empty($_POST)) {
     $result_ = array("result" => false);
     if (isset($_SESSION["loggedin"]) && isset($_SESSION["courseid"]) && isset($_SESSION["userid"])) {
         $userid = $_SESSION["userid"];
-        $courseid = $_SESSION["courseid"];
+        $courseid = strtolower($_SESSION["courseid"]);
         $name = $_POST["name"];
         $filename = basename($_FILES["file"]["name"]);
         $path = "file/" . $_FILES["file"]["name"];
@@ -26,7 +26,11 @@ if (!empty($_POST)) {
         if (!isset($error)) {
             $result = fileUtil::upload($userid, $courseid, $name, $desc, $path, $size, $file_hash, $ext);
             if (isset($result["result"])) {
-                if (move_uploaded_file($_FILES["file"]["tmp_name"], "$dir/$filename")) {
+                // Make check if sub directory exist, if not create one
+                if (!file_exists($dir/$courseid)){
+                    mkdir($dir/$courseid);
+                }
+                if (move_uploaded_file($_FILES["file"]["tmp_name"], "$dir/$courseid/$filename")) {
                     $result_["result"] = true;
                     $result_["msg"] = ErrorMsg::FILE_FILE_UPLOAD_SUCCESS;
                 } else {

@@ -21,4 +21,7 @@ class ErrorMsg{
     public const FILE_FILE_UPLOAD_ERROR = "There are something wrong, please try again later";
     public const FILE_FILE_UPLOAD_SUCCESS = "File uploaded";
     public const FILE_DIRECTORY_CREATE_ERROR = "There are something wrong, please try again later (3)";
+
+    //General
+    public const PAGE_AUTHENTICATE_ERROR = "You don't have permission to access this page";
 }

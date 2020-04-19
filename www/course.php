@@ -141,16 +141,16 @@ function getFileIcon($ext){
                                 ?>
                                 <div class="card mb-3">
                                     <div class="card-header ">
-                                        <p class="card-title h4"><span
-                                                    class="text-truncate"><?php echo $file["name"] ?></span>
+                                        <p class="card-title h4"><img width="36px" height="36px"
+                                                                      src="<?php echo getFileIcon($file["extension"]) ?>" alt=""
+                                                                      title="<?php echo $file["extension"] ?>"><span
+                                                    class="text-truncate mx-2"><?php echo $file["name"] ?></span>
                                         </p>
                                     </div>
                                     <div class="card-block card-body">
                                         <div class="row">
                                             <div class="col-lg-9">
-                                                <p class="card-title"><img width="24px" height="24px"
-                                                                           src="<?php echo getFileIcon($file["extension"]) ?>" alt=""
-                                                                           title="<?php echo $file["extension"] ?>"> <span
+                                                <p class="card-title"> <span
                                                             class="card-subtitle h6 small text-muted"><?php echo fileUtil::convertFileSize($file["size"]) ?></span>
                                                 </p>
                                                 <p class="card-text text-truncate"><?php echo $file["description"] ?></p>
@@ -163,7 +163,7 @@ function getFileIcon($ext){
                                                 </button>
                                                 <?php
                                                 if ($_SESSION["userrole"] < 2) {
-                                                    echo '<button class="btn btn-outline-danger btn-block" id="delete-record" value="' . $file["id"] . '">Delete</button>';
+                                                    echo '<button class="btn btn-outline-danger btn-block delete-record-button"  value="' . $file["id"] . '">Delete</button>';
                                                 }
                                                 ?>
                                             </div>
@@ -193,3 +193,4 @@ function getFileIcon($ext){
         </div>
     </div>
 </div>
+<script src="js/course.js"></script>

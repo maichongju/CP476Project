@@ -26,7 +26,7 @@ class fileUtil
         $conn = $database->getConnection();
 
         $sql_CheckCourse = "select * from course where id = ?;";
-        $sql_Authenticate = "select * from user_course where userid = ? and courseid = ?;";
+        $sql_Authenticate = "select * from user_course left join user on user_course.userid = user.id where userid = ? and courseid = ? and role <> 2;";
         $sql_FileExist = "select count(id) as number from file where courseId = ? and hash = ?;";
         $sql_upload = "insert into file (name,description,path,size,hash,extension,courseId) values (?,?,?,?,?,?,?);";
 
@@ -58,7 +58,7 @@ class fileUtil
                                 if ($stmt->execute()) {
                                     $result = array("result" => true);
                                 }
-                            }else{
+                            } else {
                                 $result = array("warning" => ErrorMsg::FILE_FILE_EXIST_WARNING);
                             }
                         }
@@ -74,29 +74,43 @@ class fileUtil
         return $result;
     }
 
-    public static function delete($userid,$courseid,$hash){
-        $result = false;
+    public static function delete($userid, $courseid, $fileid)
+    {
+        $result = array("result"=>false);
 
         $database = new DbConnect();
         $conn = $database->getConnection();
 
 
-        $sql_Authenticate = "select count(userid) as result from user_course where userid = ? and courseid = ?;";
-        $sql_delete = "delete from file where hash = ? and courseId = ?";
+        $sql_Authenticate = "select count(userid) as result from user_course left join user on user_course.userid = user.id where userid = ? and courseid = ? and role <> 2;";
+        $sql_CheckFileExist = "select path from file where id = ?";
+        $sql_delete = "delete from file where id = ? and courseId = ?";
 
         $stmt = $conn->prepare($sql_Authenticate);
-        $stmt->bindParam(1,$userid);
-        $stmt->bindParam(2,$courseid);
+        $stmt->bindParam(1, $userid);
+        $stmt->bindParam(2, $courseid);
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         // Check if user is authenticate
-        if ($stmt->execute()){
-            $stmt = $conn->prepare($sql_delete);
-            $stmt->bindParam(1,$hash);
-            $stmt->bindParam(2,$courseid);
+        if ($stmt->execute()) {
+            $stmt = $conn->prepare($sql_CheckFileExist);
+            $stmt->bindParam(1,$fileid);
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             if ($stmt->execute()){
-                $result = true;
+                if ($stmt->rowCount() == 1){
+                    $result["path"] = $stmt->fetchAll()[0]["path"];
+
+                    $stmt = $conn->prepare($sql_delete);
+                    $stmt->bindParam(1, $fileid);
+                    $stmt->bindParam(2, $courseid);
+                    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+                    if ($stmt->execute()) {
+                        $result["result"] = true;
+                    }
+                }
+
+
             }
+
         }
 
         $database->closeConnection();
