@@ -58,9 +58,10 @@ $(".delete-record-button").click(function () {
             }
 
         },error:function () {
-
+            if (!$(".error-msg",card).length){
+                $(".card-header",card).prepend(removeFailed());
+            }
         }
         }
     )
-
 })

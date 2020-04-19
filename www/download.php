@@ -15,11 +15,11 @@ if (isset($_GET["fileid"])){
             header('Content-Description: File Transfer');
             header('Content-Type: application/octet-stream');
             header('Content-Length: ' . $size);
-            header('Content-Disposition: attachment; filename=' . basename($name));
+            header('Content-Disposition: attachment; filename=' . basename($path).PHP_EOL);
             readfile("$dir/$path");
-
+            exit();
         }else{
-            die(json_encode(array("error"=>$result["error"])));
+            die();
         }
     }
 

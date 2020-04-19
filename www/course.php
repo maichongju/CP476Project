@@ -158,9 +158,9 @@ function getFileIcon($ext){
                                             <div class="col-lg-3">
                                                 <a class="btn btn-outline-primary btn-block "
                                                    href="preview.php?id=<?php echo $file["id"] ?>">Preview</a>
-                                                <button class="btn btn-outline-dark btn-block"
-                                                        value="<?php echo $file["id"] ?>">Download
-                                                </button>
+                                                <a class="btn btn-outline-dark btn-block"
+                                                        href=download.php?fileid=<?php echo $file["id"] ?> target="_blank">Download
+                                                </a>
                                                 <?php
                                                 if ($_SESSION["userrole"] < 2) {
                                                     echo '<button class="btn btn-outline-danger btn-block delete-record-button"  value="' . $file["id"] . '">Delete</button>';
