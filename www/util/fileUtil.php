@@ -77,7 +77,7 @@ class fileUtil
 
     public static function delete($userid, $courseid, $fileid)
     {
-        $result = array("result"=>false);
+        $result = array("result" => false);
 
         $database = new DbConnect();
         $conn = $database->getConnection();
@@ -94,10 +94,10 @@ class fileUtil
         // Check if user is authenticate
         if ($stmt->execute()) {
             $stmt = $conn->prepare($sql_CheckFileExist);
-            $stmt->bindParam(1,$fileid);
+            $stmt->bindParam(1, $fileid);
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
-            if ($stmt->execute()){
-                if ($stmt->rowCount() == 1){
+            if ($stmt->execute()) {
+                if ($stmt->rowCount() == 1) {
                     $result["path"] = $stmt->fetchAll()[0]["path"];
 
                     $stmt = $conn->prepare($sql_delete);
@@ -117,4 +117,34 @@ class fileUtil
         $database->closeConnection();
         return $result;
     }
+
+    public static function getFilePath($userid, $courseid, $fileid)
+    {
+        $result = array();
+        $database = new DbConnect();
+        $conn = $database->getConnection();
+
+        $sql = "select path,size,file.name as name from file join course c on file.courseId = c.id join user_course uc on c.id = uc.courseid where userid = ? and file.courseId = ? and file.id = ?";
+
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(1, $userid);
+        $stmt->bindParam(2, $courseid);
+        $stmt->bindParam(3, $fileid);
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        if ($stmt->execute()) {
+            if ($stmt->rowCount() == 1) {
+                $r = $stmt->fetchAll()[0];
+                $result["path"] = $r["path"];
+                $result["size"] = $r["size"];
+                $result["name"] = $r["name"];
+            } else {
+                $result["error"] = ErrorMsg::FILE_AUTHENTICATE_ERROR;
+            }
+        }else{
+            $result["error"] = ErrorMsg::FILE_FILE_DOWNLOAD_FAIL;
+        }
+        $database->closeConnection();
+        return $result;
+    }
+
 }
