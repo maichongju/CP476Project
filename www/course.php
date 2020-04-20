@@ -67,8 +67,15 @@ function getFileIcon($ext){
 
         <div class="col-sm-9 col-md-10 col-lg-10 mt-3">
             <?php if (userUtil::isAdmin() && isset($course) && !isset($course["error"])) { ?>
+
                 <a href="upload.php?id=<?php echo $course["id"] ?>"
-                   class="btn btn-outline-info mb-3 col-lg-2 col-md-12">Upload</a>
+                   class="btn btn-outline-info mb-3 col-lg-2">Upload</a>
+                <div class="alert alert-info mb-3 " role="alert">
+                    Current preview only support pdf and txt file
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
             <?php }
             if (isset($courses)) {
                 $course_size = count($courses);
@@ -156,10 +163,10 @@ function getFileIcon($ext){
                                                 <p class="card-text text-truncate"><?php echo $file["description"] ?></p>
                                             </div>
                                             <div class="col-lg-3">
-                                                <a class="btn btn-outline-primary btn-block <?php if (strtolower($file["extension"]) != 'pdf') echo "disabled" ?>"
+                                                <a class="btn btn-outline-primary btn-block <?php if (!fileUtil::previewValid($file["extension"])) echo "disabled" ?>"
                                                    role="button"
                                                    href="preview.php?id=<?php echo $file["id"] ?>"
-                                                    <?php if (strtolower($file["extension"]) != 'pdf') echo "aria-disabled='true' tabindex='-1'" ?>
+                                                    <?php if (!fileUtil::previewValid($file["extension"])) echo "aria-disabled='true' tabindex='-1'" ?>
                                                 >Preview</a>
                                                 <a class="btn btn-outline-dark btn-block"
                                                         href=download.php?fileid=<?php echo $file["id"] ?> target="_blank">Download

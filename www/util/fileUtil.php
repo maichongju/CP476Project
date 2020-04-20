@@ -118,13 +118,13 @@ class fileUtil
         return $result;
     }
 
-    public static function getFilePath($userid, $courseid, $fileid)
+    public static function getFile($userid, $courseid, $fileid)
     {
         $result = array();
         $database = new DbConnect();
         $conn = $database->getConnection();
 
-        $sql = "select path,size,file.name as name from file join course c on file.courseId = c.id join user_course uc on c.id = uc.courseid where userid = ? and file.courseId = ? and file.id = ?";
+        $sql = "select file.id, file.description,extension, path,size,file.name as name from file join course c on file.courseId = c.id join user_course uc on c.id = uc.courseid where userid = ? and file.courseId = ? and file.id = ?";
 
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(1, $userid);
@@ -133,18 +133,24 @@ class fileUtil
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         if ($stmt->execute()) {
             if ($stmt->rowCount() == 1) {
-                $r = $stmt->fetchAll()[0];
-                $result["path"] = $r["path"];
-                $result["size"] = $r["size"];
-                $result["name"] = $r["name"];
+                $result = $stmt->fetchAll()[0];
             } else {
                 $result["error"] = ErrorMsg::FILE_AUTHENTICATE_ERROR;
             }
-        }else{
+        } else {
             $result["error"] = ErrorMsg::FILE_FILE_DOWNLOAD_FAIL;
         }
         $database->closeConnection();
         return $result;
     }
 
+    /**
+     * @param $ext string extension of the file
+     * @return bool true if it is support preview
+     */
+    public static function previewValid($ext)
+    {
+        $vaildExt = array("pdf", "txt");
+        return in_array(strtolower($ext), $vaildExt);
+    }
 }

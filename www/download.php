@@ -7,7 +7,7 @@ if (isset($_GET["fileid"])){
         $courseid = $_SESSION["courseid"];
         $userid = $_SESSION["userid"];
         $fileid = $_GET["fileid"];
-        $result = fileUtil::getFilePath($userid,$courseid,$fileid);
+        $result = fileUtil::getFile($userid,$courseid,$fileid);
         if (isset($result["path"])){
             $path = $result["path"];
             $size = $result["size"];
