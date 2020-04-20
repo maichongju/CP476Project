@@ -156,8 +156,11 @@ function getFileIcon($ext){
                                                 <p class="card-text text-truncate"><?php echo $file["description"] ?></p>
                                             </div>
                                             <div class="col-lg-3">
-                                                <a class="btn btn-outline-primary btn-block "
-                                                   href="preview.php?id=<?php echo $file["id"] ?>">Preview</a>
+                                                <a class="btn btn-outline-primary btn-block <?php if (strtolower($file["extension"]) != 'pdf') echo "disabled" ?>"
+                                                   role="button"
+                                                   href="preview.php?id=<?php echo $file["id"] ?>"
+                                                    <?php if (strtolower($file["extension"]) != 'pdf') echo "aria-disabled='true' tabindex='-1'" ?>
+                                                >Preview</a>
                                                 <a class="btn btn-outline-dark btn-block"
                                                         href=download.php?fileid=<?php echo $file["id"] ?> target="_blank">Download
                                                 </a>
