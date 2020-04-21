@@ -5,8 +5,13 @@ session_start();
 require_once "util/user.php";
 
 $username = "ERROR";
-if (isset($_SESSION["loggedin"])) {
-    $username =$_SESSION["username"];
+if (isset($_SESSION["loggedin"]) ) {
+    if (!isset($_SESSION["username"])){
+        header("location: logout.php");
+    }else{
+        $username =$_SESSION["username"];
+    }
+
 }
 
 ?>
