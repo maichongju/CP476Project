@@ -22,6 +22,7 @@ if (isset($_SESSION["loggedin"])) {
 <div id="main-container">
     <div id="nav-block">
         <div id="nav-title">
+            <img src = "images/image.png">
         </div>
         <div id="nav-main">
 

@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="row">
                 <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
 
-                    <h1 class="display-4 py-2 text-truncate text-white">Sign Up</h1>
+                    <h1 class="display-4 py-2 text-truncate text-black-50">Sign Up</h1>
                     <div class="px-2">
                         <form action="signup.php" method="post" class="justify-content-center" id="form-signup">
                             <div class="form-group">
