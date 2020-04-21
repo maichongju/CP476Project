@@ -5,11 +5,11 @@ session_start();
 require_once "util/user.php";
 
 $username = "ERROR";
-if (isset($_SESSION["loggedin"]) ) {
-    if (!isset($_SESSION["username"])){
+if (isset($_SESSION["loggedin"])) {
+    if (!isset($_SESSION["username"])) {
         header("location: logout.php");
-    }else{
-        $username =$_SESSION["username"];
+    } else {
+        $username = $_SESSION["username"];
     }
 
 }
@@ -20,19 +20,20 @@ if (isset($_SESSION["loggedin"]) ) {
 <title>CP476 Prject</title>
 
 <head>
-    <link href="css/project.css" rel="stylesheet">
+    <?php require_once "include/header.php" ?>
 </head>
 
-<body class="blackground">
-<div id="main-container">
-    <div id="nav-block">
-        <div id="nav-title">
-            <img src = "images/image.png">
-        </div>
-        <div id="nav-main">
 
-            <?php
-            if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) : ?>
+<div id="container">
+    <div class="row">
+        <div id="nav-block">
+            <div id="nav-title">
+                <img src="images/image.png">
+            </div>
+            <div id="nav-main">
+
+                <?php
+                if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) : ?>
                 <div class="menu-dropdown" id="nav-main-account-dropdown">
                     <button id="nav-main-account-drop-down-button"><?php echo $username ?></button>
                     <div class="menu-dropdown-content" id="nav-main-dropdown-content">
@@ -40,20 +41,25 @@ if (isset($_SESSION["loggedin"]) ) {
                         <a href="logout.php" id="nav-logout">Log out</a>
                     </div>
                 </div>
-                </div>
-                <a href="#">My Panel</a>
+            </div>
+            <a href="#">My Panel</a>
             <?php else: ?>
                 <a href="login.php">Log in</a>
                 <a href="signup.php">Sign Up</a>
             <?php endif; ?>
         </div>
     </div>
-
+    <div class="row">
+<!--        TODO code in here!-->
     </div>
 </div>
+
+
+</div>
+</div>
 <br>
-<div id = "main-intro-div">
-    <p id = "main-page-intro">
+<div id="main-intro-div">
+    <p id="main-page-intro">
         <br>
         Greetings! Students!
         <br>
@@ -91,10 +97,9 @@ if (isset($_SESSION["loggedin"]) ) {
 
     </p>
 </div>
-<div id ="copyright">
+<div id="copyright">
     <h3>Copy right reserve to 麦辣鸡腿堡 and 板烧鸡腿堡©</h3>
 </div>
-</body>
 
 
 <script src="js/index.js"></script>
