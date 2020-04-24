@@ -49,6 +49,27 @@ class userUtil{
         return $user;
     }
 
+    public static function changePassword($userid, $newp){
+        $result = false;
+        $database = new DbConnect();
+        $conn = $database->getConnection();
+
+        $newp = password_hash($newp, PASSWORD_BCRYPT);
+
+        $sql = "UPDATE user set password = ? where id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(1,$newp);
+        $stmt->bindParam(2,$userid);
+        if ($stmt->execute()){
+            if ($stmt->rowCount()==1)
+                $result = true;
+        }
+
+        $database->closeConnection();
+        return $result;
+    }
+
+
     public static function isAdmin(){
         return $_SESSION["userrole"] == 0 || $_SESSION["userrole"] == 1;
     }

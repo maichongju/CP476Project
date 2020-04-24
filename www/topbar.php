@@ -4,7 +4,7 @@
 <div class="bg-light w-100">
     <div class="row mt-2">
         <div class="col-md-2">
-            <h1>Title</h1>
+            <a href="course.php"><img class="img-fluid" src="images/logo.png" alt=""></a>
         </div>
         <div class="col-md-4">
             <h3>
