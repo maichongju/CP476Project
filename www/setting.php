@@ -8,8 +8,6 @@ if (!empty($_POST) && isset($_POST["p"]) && isset($_SESSION["userid"])) {
     $status = userUtil::changePassword($id, $p);
 
 }
-
-
 ?>
 
 <html lang="en">
@@ -30,30 +28,31 @@ if (!empty($_POST) && isset($_POST["p"]) && isset($_SESSION["userid"])) {
         <?php require_once "sidebar.php" ?>
 
         <div class="col-sm-9 col-md-10 col-lg-10 mt-3">
-            <?php if (isset($status)) {
-                if ($status) {
-                    ?>
-                    <div class="alert alert-success" role="alert">
-                        Password Updated!
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                <?php } else { ?>
-                    <div class="alert alert-danger" role="alert">
-                        Password Updated failed!
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                <?php }
-            } ?>
-
+            <div id="msg">
+                <?php if (isset($status)) {
+                    if ($status) {
+                        ?>
+                        <div class="alert alert-success" role="alert">
+                            Password Updated!
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    <?php } else { ?>
+                        <div class="alert alert-danger" role="alert">
+                            Password Updated failed!
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    <?php }
+                } ?>
+            </div>
 
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Change Password</h4>
-                    <form method="post" action="setting.php">
+                    <form id="changePassword" method="post" action="setting.php">
                         <div class="form-group">
                             <label for="newp">New Password</label>
                             <input type="password" class="form-control" id="p" name="p" required>
@@ -73,6 +72,5 @@ if (!empty($_POST) && isset($_POST["p"]) && isset($_SESSION["userid"])) {
     </div>
 </div>
 
-<script src="js/functions.js" type="text/javascript"></script>
-
+<script src="js/setting.js" type="text/javascript"></script>
 </html>

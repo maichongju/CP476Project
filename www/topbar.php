@@ -24,7 +24,7 @@
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="setting.php">Setting</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="logout.php">logout</a>
+                    <a class="dropdown-item" href="logout.php">Log Out</a>
                 </div>
             </ul>
         </div>

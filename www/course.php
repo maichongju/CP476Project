@@ -4,6 +4,7 @@ require_once "util/userUtil.php";
 require_once "util/courseUtil.php";
 require_once "util/fileUtil.php";
 require_once "util/errorMsg.php";
+require_once "util/flickr.php";
 
 // Get all the courses for the person if there is no course id attach
 if (!isset($_GET["id"])) {
@@ -43,6 +44,14 @@ function getFileIcon($ext){
     }
     return $result;
 }
+
+$photourl = flickrUtil::getPhoto();
+
+if (!isset($photourl)){
+    $photourl = "images/default-thumbnail.jpg";
+}
+
+
 ?>
 
 <!doctype html>
@@ -95,7 +104,7 @@ function getFileIcon($ext){
                         for ($j = 0; $j < 2; $j++) { ?>
                             <a class="col-md-6 course-link" href="<?php echo "?id=" . $courses[$index]["id"] ?>">
                                 <div class="card">
-                                    <img class="card-img-top" src="images/default-thumbnail.jpg" alt="thumbnail">
+                                    <img class="card-img-top" src="<?php echo $photourl?>" alt="thumbnail">
                                     <div class="card-body">
                                         <h5 class="card-text"><?php echo strtoupper($courses[$index]["id"]) . " - " . $courses[$index]["name"] ?>
                                         </h5>
@@ -112,7 +121,7 @@ function getFileIcon($ext){
                         <div class="row mb-3">
                             <a class="col-md-6 course-link" href="<?php echo "?id=" . $courses[$index]["id"] ?>">
                                 <div class="card">
-                                    <img class="card-img-top" src="images/default-thumbnail.jpg" alt="thumbnail">
+                                    <img class="card-img-top" src="<?php echo $photourl?>" alt="thumbnail">
                                     <div class="card-body">
                                         <h5 class="card-text"><?php echo strtoupper($courses[$index]["id"]) . " - " . $courses[$index]["name"] ?>
                                         </h5>
