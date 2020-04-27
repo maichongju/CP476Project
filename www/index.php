@@ -23,10 +23,11 @@ if (isset($_SESSION["loggedin"])) {
     <link href="css/form.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+
 </head>
 
-
-<div class="container" style="background-image: url('images/form-background.png'); ">
+<div id = back>
+<div class="container">
     <div class="row">
         <nav class="navbar navbar-light bg-light w-100">
             <div class="col-md-8">
@@ -87,9 +88,9 @@ if (isset($_SESSION["loggedin"])) {
 
 
     </div>
-    <p class = "text-center mt-4">Copy right reserve to cjM© and zwY©</p>
+    <p class = "text-center mt-4 p-4">Copy right reserve to cjM© and zwY©</p>
 </div>
-
+</div>
 
 <!--</div>-->
 <!--</div>-->

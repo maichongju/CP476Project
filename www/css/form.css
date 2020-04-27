@@ -102,3 +102,10 @@ form:before {
     z-index: -1;
     border-radius: 10px;
 }
+div.main-txt{
+    font-family: 'Caveat', cursive;
+    font-size: 30px;
+}
+div#back{
+    background: url("../images/form-background.png") center center;
+}
