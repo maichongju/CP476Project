@@ -27,7 +27,7 @@ if (isset($_SESSION["loggedin"]) && isset($_SESSION["courseid"]) && isset($_SESS
         <!--side nav bar -->
         <?php require_once "sidebar.php" ?>
 
-        <div class="col-sm-9 col-md-10 col-lg-10 mt-3">
+        <div class="col-sm-9 col-md-10 col-lg-10 mt-3 mb-3">
             <?php if (isset($file)) { ?>
                 <h3> <?php echo $file["name"] ?></h3>
                 <p><?php echo $file["description"] ?> </p>
