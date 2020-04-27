@@ -20,10 +20,13 @@ if (isset($_SESSION["loggedin"])) {
 <head>
     <?php require_once "include/header.php" ?>
     <title>CP476 Prject</title>
+    <link href="css/form.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
 </head>
 
 
-<div class="container">
+<div class="container" style="background-image: url('images/form-background.png'); ">
     <div class="row">
         <nav class="navbar navbar-light bg-light w-100">
             <div class="col-md-8">
@@ -59,7 +62,32 @@ if (isset($_SESSION["loggedin"])) {
     </div>
     <div class="row">
         <!--        TODO code in here!-->
+
+        <div class = "col-md-6">
+            <img src = "images/img.png" width="100%" height="100%">
+        </div>
+        <div class = "main-txt col-md-6">
+            <div class = "mt-4">
+               Welcome! Thanks for choosing Your Learning Space!
+            </div>
+            <div> <a href="login.php">LOGIN</a> if you already have an account.
+                <br>
+                Click <a href="signup.php.php">Sign up</a> for a new Account.
+            </div>
+            <header class = "mt-4">
+               New account for teacher:
+            </header>
+            <div class = "ml-4">
+                Please register a student account first, and contact administration team at yourlaerningspace@yls.com for identification check.
+            </div>
+        </div>
+
+
+
+
+
     </div>
+    <p class = "text-center mt-4">Copy right reserve to cjM© and zwY©</p>
 </div>
 
 
